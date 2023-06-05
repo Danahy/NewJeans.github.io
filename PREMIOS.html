@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documento sin título</title>
+<style type="text/css">
+<!--
+body {
+	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+	background-color: #42413C; background-image: url(file:///D|/NEWJEANS/IMAGENES/fondo.jpg);
+	background-attachment:fixed;
+	margin: 0;
+	padding: 0;
+	color: #000;
+}
+
+/* ~~ Selectores de elemento/etiqueta ~~ */
+ul, ol, dl { /* Debido a las diferencias existentes entre los navegadores, es recomendable no añadir relleno ni márgenes en las listas. Para lograr coherencia, puede especificar las cantidades deseadas aquí o en los elementos de lista (LI, DT, DD) que contienen. Recuerde que lo que haga aquí se aplicará en cascada en la lista .nav, a no ser que escriba un selector más específico. */
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 /* la eliminación del margen superior resuelve un problema que origina que los márgenes escapen de la etiqueta div contenedora. El margen inferior restante lo mantendrá separado de los elementos de que le sigan. */
+	padding-right: 15px;
+	padding-left: 15px; /* la adición de relleno a los lados del elemento dentro de las divs, en lugar de en las divs propiamente dichas, elimina todas las matemáticas de modelo de cuadro. Una div anidada con relleno lateral también puede usarse como método alternativo. */
+}
+a img { /* este selector elimina el borde azul predeterminado que se muestra en algunos navegadores alrededor de una imagen cuando está rodeada por un vínculo */
+	border: none;
+}
+
+/* ~~ La aplicación de estilo a los vínculos del sitio debe permanecer en este orden (incluido el grupo de selectores que crea el efecto hover -paso por encima-). ~~ */
+a:link {
+	color: #42413C;
+	text-decoration: underline; /* a no ser que aplique estilos a los vínculos para que tengan un aspecto muy exclusivo, es recomendable proporcionar subrayados para facilitar una identificación visual rápida */
+}
+a:visited {
+	color: #6E6C64;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { /* este grupo de selectores proporcionará a un usuario que navegue mediante el teclado la misma experiencia de hover (paso por encima) que experimenta un usuario que emplea un ratón. */
+	text-decoration: none;
+}
+
+/* ~~ este contenedor de anchura fija rodea a las demás divs~~ */
+.container {
+	width: 960px;
+	background-color: #FFF;
+	margin: 0 auto; /* el valor automático de los lados, unido a la anchura, centra el diseño */
+	overflow: hidden; /* esta declaración hace que .container conozca dónde terminan las columnas flotantes incluidas y las contenga */
+}
+
+/* ~~ Estas son las columnas para el diseño. ~~ 
+
+1) El relleno sólo se sitúa en la parte superior y/o inferior de las divs. Los elementos situados dentro de estas divs tienen relleno a los lados. Esto le ahorra las "matemáticas de modelo de cuadro". Recuerde que si añade relleno o borde lateral a la div propiamente dicha, éste se añadirá a la anchura que defina para crear la anchura *total*. También puede optar por eliminar el relleno del elemento en la div y colocar una segunda div dentro de ésta sin anchura y el relleno necesario para el diseño deseado.
+
+2) No se asigna margen a las columnas, ya que todas ellas son flotantes. Si es preciso añadir un margen, evite colocarlo en el lado hacia el que se produce la flotación (por ejemplo: un margen derecho en una div configurada para flotar hacia la derecha). En muchas ocasiones, puede usarse relleno como alternativa. En el caso de divs para las que deba incumplirse esta regla, deberá añadir una declaración "display:inline" a la regla de la div para evitar un error que provoca que algunas versiones de Internet Explorer dupliquen el margen.
+
+3) Dado que las clases se pueden usar varias veces en un documento (y que también se pueden aplicar varias clases a un elemento), se ha asignado a las columnas nombres de clases en lugar de ID. Por ejemplo, dos divs de barra lateral podrían apilarse si fuera necesario. Si lo prefiere, éstas pueden cambiarse a ID fácilmente, siempre y cuando las utilice una sola vez por documento.
+
+4) Si prefiere que la navegación esté a la derecha en lugar de a la izquierda, simplemente haga que estas columnas floten en dirección opuesta (todas a la derecha en lugar de todas a la izquierda) y éstas se representarán en orden inverso. No es necesario mover las divs por el código fuente HTML.
+
+*/
+.sidebar1 {
+	float: left;
+	width: 180px;
+	background-color: rgba(188,243,250,1);
+	padding-bottom: 10px;
+}
+.content {
+
+	padding: 10px 0;
+	width: 780px;
+	float: left;
+}
+
+/* ~~ Este selector agrupado da espacio a las listas del área de .content ~~ */
+.content ul, .content ol { 
+	padding: 0 15px 15px 40px; /* este relleno reproduce en espejo el relleno derecho de la regla de encabezados y de párrafo incluida más arriba. El relleno se ha colocado en la parte inferior para que el espacio existente entre otros elementos de la lista y a la izquierda cree la sangría. Estos pueden ajustarse como se desee. */
+}
+
+/* ~~ Los estilos de lista de navegación (pueden eliminarse si opta por usar un menú desplegable predefinido como el de Spry) ~~ */
+ul.nav {
+	list-style: none; /* esto elimina el marcador de lista */
+	border-top: 1px solid #666; /* esto crea el borde superior de los vínculos (los demás se sitúan usando un borde inferior en el LI) */
+	margin-bottom: 15px; /* esto crea el espacio entre la navegación en el contenido situado debajo */
+}
+ul.nav li {
+	border-bottom: 1px solid #666; /* esto crea la separación de los botones */
+}
+ul.nav a, ul.nav a:visited { /* al agrupar estos selectores, se asegurará de que los vínculos mantengan el aspecto de botón incluso después de haber sido visitados */
+	padding: 5px 5px 5px 15px;
+	display: block; /* esto asigna propiedades de bloque al vínculo, lo que provoca que llene todo el LI que lo contiene. Esto provoca que toda el área reaccione a un clic de ratón. */
+	width: 160px;  /*esta anchura hace que se pueda hacer clic en todo el botón para IE6. Puede eliminarse si no es necesario proporcionar compatibilidad con IE6. Calcule la anchura adecuada restando el relleno de este vínculo de la anchura del contenedor de barra lateral. */
+	text-decoration: none;
+	background-color: rgba(151,223,251,1);
+}
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* esto cambia el color de fondo y del texto tanto para usuarios que naveguen con ratón como para los que lo hagan con teclado */
+	background-color: #CC99CC;
+	color: #FFF;
+}
+
+/* ~~ clases float/clear varias ~~ */
+.fltrt {  /* esta clase puede utilizarse para que un elemento flote en la parte derecha de la página. El elemento flotante debe preceder al elemento junto al que debe aparecer en la página. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* esta clase puede utilizarse para que un elemento flote en la parte izquierda de la página. El elemento flotante debe preceder al elemento junto al que debe aparecer en la página. */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* esta clase puede situarse en una <br /> o div vacía como elemento final tras la última div flotante (dentro de #container) si se elimina overflow:hidden en .container */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+-->
+</style></head>
+
+<body>
+
+<div class="container">
+  <div class="sidebar1">
+    <ul class="nav">
+      <li><a href="D:\NEWJEANS\HTML\NEWJEANS.html">INICIO</a></li>
+      <li><a href="D:\NEWJEANS\HTML\IMPACTO.html">IMPACTO</a></li>
+      <li><a href="D:\NEWJEANS\HTML\INTEGRANTES.html">INTEGRANTES</a></li>
+      <li><a href="D:\NEWJEANS\HTML\CANCIONES.html">CANCIONES</a></li>
+      <li><a href="D:\NEWJEANS\HTML\PREMIOS.html">PREMIOS</a></li>
+      
+    </ul>
+     <p><font color="#6352FC" face="Tw Cen MT Condensed Extra Bold">El nuevo logro de las rookies ha generado opiniones divididas en las comunidades en línea, aunque en su mayoría los internautas parecen estar de acuerdo en que el premio es más que merecido y que este es solo el inicio para una carrera llena de éxitos.</font></p>
+    <!-- end .sidebar1 --></div>
+  <div class="content">
+    <h1><font color="#8DE0FC" face="broadway" size="7" ><center>Premios</center></font></h1>
+     <font face="Georgia"><p align="justify">Desde su debut, las chicas de<strong> NewJeans</strong> se establecieron como un grupo grandioso y prometedor, pues sus lanzamientos se ubicaron en las principales listas musicales y batieron récords en solo cuestión de días. Sin embargo, estas parecían ser solo sus primeras hazañas, pues recientemente se convirtieron en el <strong>grupo femenino de K-Pop más rápido en ganar un Daesang.</strong></p>
+     </font>
+    
+       <p><a href="https://unniepop.cl/2022/12/14/new-jeans-se-convierte-en-el-grupo-femenino-mas-rapido-en-ganar-un-daesang/"><font face="Tahoma" color="#6699CC"> Premios</font></a>
+       </p>
+       <p>&nbsp;</p>
+     
+     <h2>&nbsp;</h2>
+  
+   <center><table width="768" border="1">
+      <tr>
+        <td width="104" bgcolor="#CDB3FF" bordercolor="#6DD1F8">Año</td>
+        <td width="622" bgcolor="#CDB3FF"  bordercolor="#6DD1F8">Premios</td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFD2F2" bordercolor="#6DD1F8">2022</td>
+        <td bgcolor="#C7E2FE" bordercolor="#6DD1F8"><ul>
+          <li><strong>Mnet M! Countdown (18/08):</strong> &quot;Attention&quot;</li>
+          <li><strong>KBS Music Bank (19/08):</strong> &quot;Attention&quot;</li>
+          <li><strong>MBC Show! Music Core (20/08):</strong> &quot;Attention&quot;</li>
+          <li><strong>SBS Inkigayo (21/08):</strong> &quot;Attention&quot;</li>
+          <li><strong>MelOn Popularity Award:</strong> 3rd Week of August (Attention)</li>
+          <li><strong>SBS Inkigayo (28/08):</strong> &quot;Attention&quot;</li>
+          <li><strong>2022 The Fact Music Awards:</strong> Next Leader Award</li>
+          <li><strong>THE-K Billboard Awards:</strong> Hot Rookie Award</li>
+          <li><strong>14th MelOn Music Awards:</strong> Top 10 (Bonsang)</li>
+          <li><strong>14th MelOn Music Awards:</strong> New Artist Of The Year</li>
+          <li><strong>Asia Artist Awards:</strong> AAA Rookie Of The Year (Singer)</li>
+          <li><strong>Asia Artist Awards:</strong> AAA Performance Of The Year (Daesang)</li>
+          <li><strong>Asian Pop Music Awards:</strong> Top 20 Songs Of The Year (Overseas) (por <strong>Hype Boy</strong>)</li>
+        </ul></td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFD2F2" bordercolor="#6DD1F8">2023</td>
+        <td bgcolor="#C7E2FE" bordercolor="#6DD1F8"><ul>
+          <li><strong>MBC Show! Music Core (07/01):</strong> &quot;Ditto&quot;</li>
+          <li><strong>37th Golden Disc Awards:</strong> Rookie Artist</li>
+          <li><strong>37th Golden Disc Awards:</strong> Best Digital Song (Bonsang) (por <strong>Attention</strong>)</li>
+          <li><strong>SBS Inkigayo (08/01):</strong> &quot;Ditto&quot;</li>
+          <li><strong>Mnet M! Countdown (12/01):</strong> &quot;OMG&quot;</li>
+          <li><strong>KBS Music Bank (13/01):</strong> &quot;Ditto&quot;</li>
+          <li><strong>MBC Show! Music Core (14/01):</strong> &quot;Ditto&quot;</li>
+          <li><strong>SBS Inkigayo (15/01):</strong> &quot;OMG&quot;</li>
+          <li><strong>32nd Seoul Music Awards:</strong> Rookie of the Year</li>
+          <li><strong>MelOn Popularity Award:</strong> 1rd Week of January (Ditto)</li>
+          <li><strong>Mnet M! Countdown (26/01):</strong> &quot;OMG&quot;</li>
+          <li><strong>KBS Music Bank (27/01):</strong> &quot;OMG&quot;</li>
+          <li><strong>MBC Show! Music Core (28/01):</strong> &quot;Ditto&quot; <strong>Triple Corona</strong></li>
+          <li><strong>SBS Inkigayo (29/01):</strong> &quot;Ditto&quot;</li>
+          <li><strong>MBC Show! Music Core (04/02):</strong> &quot;Ditto&quot;</li>
+          <li><strong>SBS Inkigayo (05/02):</strong> &quot;Ditto&quot; <strong>Triple Corona</strong></li>
+          <li><strong>Hanteo Music Awards:</strong> Rookie of the Year (Female)</li>
+          <li><strong>12th 2022 Circle Chart Music Awards:</strong> Rookie of the Year - Digital Music (por Attention)</li>
+          <li><strong>20th Korean Music Awards:</strong> Best Kpop Song (por <strong>Attention</strong>)</li>
+          <li><strong>20th Korean Music Awards:</strong> Best Kpop Album (por <strong>NewJeans</strong>)</li>
+          <li><strong>20th Korean Music Awards:</strong> Rookie of the Year</li>
+          <li><strong>SBS Inkigayo (19/03):</strong> &quot;OMG&quot;</li>
+          <li><strong>SBS Inkigayo (26/03):</strong> &quot;OMG&quot; <strong>Triple Corona</strong></li>
+          <li><strong>SBS Inkigayo (02/04):</strong> &quot;Hype Boy&quot;</li>
+        </ul></td>
+      </tr>
+    </table></center>
+    <center> <font face="Georgia" color="#A393FF"><p>&nbsp;</p>
+      <p>&nbsp;</p>
+      <p><strong>Anuncios</strong></p>
+    </font>
+    <font face="Georgia">
+    <ul>
+          <li>Coca-Cola (2023)</li>
+          <li>Levi's (2023)</li>
+          <li>OLENS (2023)</li>
+          <li>Nike Air Max (2023)</li>
+          <li>McDonald's (2023)</li>
+          <li>CARIN (2023)</li>
+          <li>MUSINSA (2022-2023)</li>
+          <li>5252 BY OiOi (2022-2023)</li>
+          <li>SK Telecom (2022)</li>
+          <li>Pinkfong (2022)</li>
+          <li>MegaStudy (2022)</li>
+          <li>Shinhan Bank (2022)</li>
+    </ul></font></center>
+    <!-- end .content --></div>
+  <!-- end .container --></div>
+</body>
+</html>
