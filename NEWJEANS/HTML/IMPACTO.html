@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documento sin título</title>
+<style type="text/css">
+<!--
+body {
+	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+	background-color: #42413C; background-image: url(file:///D|/NEWJEANS/IMAGENES/fondo.jpg);
+	background-attachment:fixed;
+	margin: 0;
+	padding: 0;
+	color: #000;
+}
+
+/* ~~ Selectores de elemento/etiqueta ~~ */
+ul, ol, dl { /* Debido a las diferencias existentes entre los navegadores, es recomendable no añadir relleno ni márgenes en las listas. Para lograr coherencia, puede especificar las cantidades deseadas aquí o en los elementos de lista (LI, DT, DD) que contienen. Recuerde que lo que haga aquí se aplicará en cascada en la lista .nav, a no ser que escriba un selector más específico. */
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 /* la eliminación del margen superior resuelve un problema que origina que los márgenes escapen de la etiqueta div contenedora. El margen inferior restante lo mantendrá separado de los elementos de que le sigan. */
+	padding-right: 15px;
+	padding-left: 15px; /* la adición de relleno a los lados del elemento dentro de las divs, en lugar de en las divs propiamente dichas, elimina todas las matemáticas de modelo de cuadro. Una div anidada con relleno lateral también puede usarse como método alternativo. */
+}
+a img { /* este selector elimina el borde azul predeterminado que se muestra en algunos navegadores alrededor de una imagen cuando está rodeada por un vínculo */
+	border: none;
+}
+
+/* ~~ La aplicación de estilo a los vínculos del sitio debe permanecer en este orden (incluido el grupo de selectores que crea el efecto hover -paso por encima-). ~~ */
+a:link {
+	color: #42413C;
+	text-decoration: underline; /* a no ser que aplique estilos a los vínculos para que tengan un aspecto muy exclusivo, es recomendable proporcionar subrayados para facilitar una identificación visual rápida */
+}
+a:visited {
+	color: #6E6C64;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { /* este grupo de selectores proporcionará a un usuario que navegue mediante el teclado la misma experiencia de hover (paso por encima) que experimenta un usuario que emplea un ratón. */
+	text-decoration: none;
+}
+
+/* ~~ este contenedor de anchura fija rodea a las demás divs~~ */
+.container {
+	width: 960px;
+	background-color: #FFF;
+	margin: 0 auto; /* el valor automático de los lados, unido a la anchura, centra el diseño */
+	overflow: hidden; /* esta declaración hace que .container conozca dónde terminan las columnas flotantes incluidas y las contenga */
+}
+
+/* ~~ Estas son las columnas para el diseño. ~~ 
+
+1) El relleno sólo se sitúa en la parte superior y/o inferior de las divs. Los elementos situados dentro de estas divs tienen relleno a los lados. Esto le ahorra las "matemáticas de modelo de cuadro". Recuerde que si añade relleno o borde lateral a la div propiamente dicha, éste se añadirá a la anchura que defina para crear la anchura *total*. También puede optar por eliminar el relleno del elemento en la div y colocar una segunda div dentro de ésta sin anchura y el relleno necesario para el diseño deseado.
+
+2) No se asigna margen a las columnas, ya que todas ellas son flotantes. Si es preciso añadir un margen, evite colocarlo en el lado hacia el que se produce la flotación (por ejemplo: un margen derecho en una div configurada para flotar hacia la derecha). En muchas ocasiones, puede usarse relleno como alternativa. En el caso de divs para las que deba incumplirse esta regla, deberá añadir una declaración "display:inline" a la regla de la div para evitar un error que provoca que algunas versiones de Internet Explorer dupliquen el margen.
+
+3) Dado que las clases se pueden usar varias veces en un documento (y que también se pueden aplicar varias clases a un elemento), se ha asignado a las columnas nombres de clases en lugar de ID. Por ejemplo, dos divs de barra lateral podrían apilarse si fuera necesario. Si lo prefiere, éstas pueden cambiarse a ID fácilmente, siempre y cuando las utilice una sola vez por documento.
+
+4) Si prefiere que la navegación esté a la derecha en lugar de a la izquierda, simplemente haga que estas columnas floten en dirección opuesta (todas a la derecha en lugar de todas a la izquierda) y éstas se representarán en orden inverso. No es necesario mover las divs por el código fuente HTML.
+
+*/
+.sidebar1 {
+	float: left;
+	width: 180px;
+	background-color: rgba(188,243,250,1);
+	padding-bottom: 10px;
+}
+.content {
+
+	padding: 10px 0;
+	width: 780px;
+	float: left;
+}
+
+/* ~~ Este selector agrupado da espacio a las listas del área de .content ~~ */
+.content ul, .content ol { 
+	padding: 0 15px 15px 40px; /* este relleno reproduce en espejo el relleno derecho de la regla de encabezados y de párrafo incluida más arriba. El relleno se ha colocado en la parte inferior para que el espacio existente entre otros elementos de la lista y a la izquierda cree la sangría. Estos pueden ajustarse como se desee. */
+}
+
+/* ~~ Los estilos de lista de navegación (pueden eliminarse si opta por usar un menú desplegable predefinido como el de Spry) ~~ */
+ul.nav {
+	list-style: none; /* esto elimina el marcador de lista */
+	border-top: 1px solid #666; /* esto crea el borde superior de los vínculos (los demás se sitúan usando un borde inferior en el LI) */
+	margin-bottom: 15px; /* esto crea el espacio entre la navegación en el contenido situado debajo */
+}
+ul.nav li {
+	border-bottom: 1px solid #666; /* esto crea la separación de los botones */
+}
+ul.nav a, ul.nav a:visited { /* al agrupar estos selectores, se asegurará de que los vínculos mantengan el aspecto de botón incluso después de haber sido visitados */
+	padding: 5px 5px 5px 15px;
+	display: block; /* esto asigna propiedades de bloque al vínculo, lo que provoca que llene todo el LI que lo contiene. Esto provoca que toda el área reaccione a un clic de ratón. */
+	width: 160px;  /*esta anchura hace que se pueda hacer clic en todo el botón para IE6. Puede eliminarse si no es necesario proporcionar compatibilidad con IE6. Calcule la anchura adecuada restando el relleno de este vínculo de la anchura del contenedor de barra lateral. */
+	text-decoration: none;
+	background-color:  rgba(151,223,251,1);
+}
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* esto cambia el color de fondo y del texto tanto para usuarios que naveguen con ratón como para los que lo hagan con teclado */
+	background-color: #ADB96E;
+	color: rgba(162,231,253,1);
+}
+
+/* ~~ clases float/clear varias ~~ */
+.fltrt {  /* esta clase puede utilizarse para que un elemento flote en la parte derecha de la página. El elemento flotante debe preceder al elemento junto al que debe aparecer en la página. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* esta clase puede utilizarse para que un elemento flote en la parte izquierda de la página. El elemento flotante debe preceder al elemento junto al que debe aparecer en la página. */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* esta clase puede situarse en una <br /> o div vacía como elemento final tras la última div flotante (dentro de #container) si se elimina overflow:hidden en .container */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+-->
+</style></head>
+
+<body>
+
+<div class="container">
+  <div class="sidebar1">
+    <ul class="nav">
+      <li><a href="D:\NEWJEANS\HTML\NEWJEANS.html">INICIO</a></li>
+      <li><a href="D:\NEWJEANS\HTML\IMPACTO.html">IMPACTO</a></li>
+      <li><a href="D:\NEWJEANS\HTML\INTEGRANTES.html">INTEGRANTES</a></li>
+      <li><a href="D:\NEWJEANS\HTML\CANCIONES.html">CANCIONES</a></li>
+      <li><a href="D:\NEWJEANS\HTML\PREMIOS.html">PREMIOS</a></li>
+    </ul>
+    <p><font color="#6352FC" face="Tw Cen MT Condensed Extra Bold"><strong>NewJeans</strong> es una de las bandas màs prometedoras de K-Pop de la actualidad. Con su talento, su energìa y su pasiòn por la mùsica, estàn destinadas a tener un impacto duradero en la industria musical y a ganarse aùn màs seguidores en el futuro.</font></p>
+    <!-- end .sidebar1 --></div>
+  <div class="content">
+    <h1><font color="#8DE0FC" face="broadway" size="7" ><center>IMPACTO</center></font></h1>
+    <p align="justify"><font face="Georgia">En cuanrto a su impacto en la industria musical, NewJeans ha sido reconocida por su contribuciòn de la popularizaciòn del K-Pop en el mundo.Su mùsica y su estilo han inspirado a muchas otras bandas y artistas, y su influencia se sigue extendiendo mas alla de las fronteras de Corea del Sur.</font></p>
+    <p><a href="https://kpopfacts.com/newjeans-integrantes-pre-debut-debut-discografia-y-datos/"><font face="Tahoma" color="#6699CC">Impacto</font></a></p>
+    <p>&nbsp; </p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <center><img src="../IMAGENES/NME-NEWJEANS-HERO@2560x1625.jpg" width="450" height="300" alt="impacto" /></center>
+<p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <h3><font color="#FF99CC">Estilo</font></h3>
+    <font face="Georgia"></font><p align="justify"><font face="Georgia">NewJeans tamnièn es conocida por su estilo de moda atrevido y su liderazgo en la tendencia de la moda del K-Pop, tomando influencias del Y2K o el regreso de los 2000s. Las integrantes son conocidas por su atenciòn al detalle en su apariencia y por su capacidad para combinar diferentes estilos para crear un look ùnico y personal.</font></p>
+    <p align="justify"><font face="Georgia">Desafìa las reglas del gènero al mostrar integrantes autènticas, ninguna copite con otra por la atenciòn de la audiencia; sus actitudes son frìas, cada una tiene su propia personalidad y se aprecia que disfrutan mucho su trabajo, lo cual ayuda a los fans a conectar màs fàcilmente.</font></p>
+    <p><a href="https://sp.yna.co.kr/view/ASP20220804000900883"><font face="Tahoma" color="#6699CC">Impacto</font></a>
+      
+    </p>
+    <p>&nbsp;</p>
+    <marquee bgcolor="PINK"> <DIV ALIGN="CENTER">
+    <img src="../IMAGENES/estilo1.jpg" width="300" height="200" alt="estilo1" />
+    <img src="../IMAGENES/estilo2.jpg" width="300" height="200" alt="estilo2" />
+    <img src="../IMAGENES/estilo3.jpg" width="300" height="200" alt="estilo3" />
+    <img src="../IMAGENES/estilo 4.jpg" width="300" height="200" alt="estilo4" /></DIV>
+    </marquee>
+    <h4><font color="#FF99CC">Polèmicas</font></h4>
+    <p align="justify"><font face="Georgia">Tras su debut, la canción <strong>&ldquo;Cookie&rdquo;</strong> atrajó polémica al grupo, a causa de que parte del público consideró que tenía una connotación sexual, no siendo adecuado que menores de edad cantaran la canción, sin embargo, la compañía emitió un comunicado oficial negando las falsas acusaciones y sin fudamento, explicando que la palabra <strong>&ldquo;Cookie&rdquo;</strong> hacia referencia a la música de las chicas, que una vez que la pruebes/escuches se volvera adictiva, comparándolo con una galleta, curiosamente en coreano la palabra &lsquo;galleta&rsquo; también se puede escuchar pronunciada como la palabra &lsquo;disco&rsquo;, de esta manera, la canción hacia referencia a su música y estaba dirigida a sus fans.</font></p>
+    <marquee bgcolor="PINK"> 
+    <DIV ALIGN="CENTER">
+    <img src="../IMAGENES/cookie1.jpg" width="300" height="200" alt="cookie1" />
+    <img src="../IMAGENES/cookie2.jpg" width="300" height="200" alt="cookie2" />
+    <img src="../IMAGENES/cookie3.jpg" width="300" height="200" alt="cookie3" /></DIV>
+    </marquee>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+  <!-- end .content --></div>
+  <!-- end .container --></div>
+</body>
+</html>
